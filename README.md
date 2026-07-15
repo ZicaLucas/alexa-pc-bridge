@@ -80,19 +80,6 @@ Invoke-WebRequest -Uri http://localhost:3000/shutdown -Method POST -Headers @{"x
 Invoke-WebRequest -Uri http://localhost:3000/shutdown -Method POST -Headers @{"x-token"="errado"}
 ```
 
-## Roadmap
-
-- [x] Servidor Node com `/wake` e `/shutdown` + autenticação por token
-- [ ] Exposição via Cloudflare Tunnel (HTTPS)
-- [ ] Alexa Skill (interaction model + intents)
-- [ ] AWS Lambda ligando a skill ao servidor
-- [ ] Inicialização automática do servidor no boot do Windows
-
-## Segurança
-
-- O token **nunca** vai para o repositório (`.env` está no `.gitignore`).
-- Todo request exige o header `x-token` válido.
-- O magic packet de "wake" não pode partir do próprio PC (que está desligado) — será servido pela Lambda ou por um dispositivo sempre-ligado na rede.
 
 ## Licença
 
